@@ -16,6 +16,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 
 builder.Services.AddSignalR();
+// To Add Azure SignalR Please add below line after services.AddSignalR(),
+//.AddAzureSignalR(builder.Configuration.GetConnectionString(CommonConstants.AzureSignalRConnectionKey));
 
 WebApplication app = builder.Build();
 

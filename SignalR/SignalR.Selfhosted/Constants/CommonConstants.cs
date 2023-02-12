@@ -5,5 +5,7 @@
         internal const string HubEndpoint = "/signalR/notificationHub";
 
         internal const string NotificationCreatedEvent = "NotificationCreated";
+
+        internal const string AzureSignalRConnectionKey = "AzureSignalR";
     }
 }
