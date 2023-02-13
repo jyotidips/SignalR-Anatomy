@@ -1,4 +1,4 @@
-﻿namespace SignalR.Constants
+﻿namespace SignalR.Selfhosted.Constants
 {
     internal static class CommonConstants
     {

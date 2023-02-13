@@ -1,4 +1,4 @@
-﻿namespace SignalR.Models
+﻿namespace SignalR.Selfhosted.Models
 {
     public class SendNotificationRequest
     {
