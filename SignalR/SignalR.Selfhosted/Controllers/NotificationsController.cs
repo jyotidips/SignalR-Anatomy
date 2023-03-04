@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using SignalR.Constants;
+using SignalR.Common;
 using SignalR.Hubs;
 using SignalR.Models;
 using System.Threading.Tasks;
@@ -22,13 +22,13 @@ namespace SignalR.Controllers
         public async Task<IActionResult> SendAll()
         {
             await _hubContext.Clients.All
-                .SendCoreAsync(CommonConstants.NotificationCreatedEvent,
+                .SendCoreAsync(Constants.NotificationCreatedEvent,
                     new object[]{
-                        new SendNotificationRequest
+                        new NotificationMessageModel
                         {
                             Id = 1,
-                            ContentTemplate = "Some Content",
-                            TitleTemplate = "Some Title"
+                            Content = "Some Content",
+                            Title = "Some Title"
                         }
                     });
 
@@ -40,13 +40,13 @@ namespace SignalR.Controllers
         {
             await _hubContext.Clients
                 .Groups(groupName)
-                .SendCoreAsync(CommonConstants.NotificationCreatedEvent,
+                .SendCoreAsync(Constants.NotificationCreatedEvent,
                     new object[]{
-                        new SendNotificationRequest
+                        new NotificationMessageModel
                         {
                             Id = 1,
-                            ContentTemplate = "Some Content",
-                            TitleTemplate = "Some Title"
+                            Content = "Some Content",
+                            Title = "Some Title"
                         }
                     });
 

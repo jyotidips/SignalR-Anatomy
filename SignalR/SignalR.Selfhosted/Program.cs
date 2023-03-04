@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SignalR.Constants;
+using SignalR.Common;
 using SignalR.Hubs;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -16,8 +16,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 
 builder.Services.AddSignalR();
-// To Add Azure SignalR Please add below line after services.AddSignalR(),
-//.AddAzureSignalR(builder.Configuration.GetConnectionString(CommonConstants.AzureSignalRConnectionKey));
 
 WebApplication app = builder.Build();
 
@@ -40,6 +38,6 @@ app.UseRouting();
 
 app.MapControllers();
 
-app.MapHub<NotificationHub>(CommonConstants.HubEndpoint);
+app.MapHub<NotificationHub>(Constants.HubEndpoint);
 
 app.Run();

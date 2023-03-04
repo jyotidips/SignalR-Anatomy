@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using SignalR.Serverless.Constants;
+using SignalR.Common;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +21,7 @@ builder.Services
     .AddSingleton<ServiceHubContext>(new ServiceManagerBuilder()
     .WithOptions(option =>
     {
-        option.ConnectionString = builder.Configuration.GetConnectionString(CommonConstants.AzureSignalRConnectionKey);
+        option.ConnectionString = builder.Configuration.GetConnectionString(Constants.AzureSignalRConnectionKey);
 
         option.UseJsonObjectSerializer(new NewtonsoftJsonObjectSerializer(new JsonSerializerSettings
         {
@@ -29,7 +29,7 @@ builder.Services
         }));
     })
     .BuildServiceManager()
-    .CreateHubContextAsync(CommonConstants.NotificationHubName, default)
+    .CreateHubContextAsync(Constants.NotificationHubName, default)
     .ConfigureAwait(false)
     .GetAwaiter()
     .GetResult());
