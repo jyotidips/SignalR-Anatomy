@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SignalR.Hubs
+namespace SignalR.Selfhosted.Hubs
 {
     public class NotificationHub : Hub
     {

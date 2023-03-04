@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SignalR.Common;
-using SignalR.Hubs;
+using SignalR.Selfhosted.Hubs;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 

@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using SignalR.Common;
-using SignalR.Hubs;
 using SignalR.Models;
+using SignalR.Selfhosted.Hubs;
 using System.Threading.Tasks;
 
-namespace SignalR.Controllers
+namespace SignalR.Selfhosted.Controllers
 {
     [ApiController]
     [Route("[controller]")]
