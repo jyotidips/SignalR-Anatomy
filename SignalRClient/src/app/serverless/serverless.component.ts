@@ -95,7 +95,7 @@ export class ServerlessComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  CleanAll(id: any = null) {
+  CleanAll(id: number = null) {
     if (id) {
       const index = this.messages.findIndex((x) => x.id == id);
       if (index > -1) {
