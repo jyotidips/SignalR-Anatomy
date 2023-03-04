@@ -46,13 +46,12 @@ export class SelfhostedComponent implements OnInit {
       .build();
 
     this.hubConnection.start().catch((err) => {
-      console.error(err.toString());
       window.alert(MessageConstants.CONNECTION_FAILED);
     });
 
     this.hubConnection.on(
       HubConstants.NOTIFICATION_CREATED_HUB_EVENT,
-      (data: any) => {
+      (data: NotificationMessage) => {
         data.id = this.messages.length + 1;
         this.messages.push(data);
       }
@@ -104,7 +103,7 @@ export class SelfhostedComponent implements OnInit {
       });
   }
 
-  cleanAll(id: any = null) {
+  cleanAll(id: number = null) {
     if (id) {
       const index = this.messages.findIndex((x) => x.id == id);
       if (index > -1) {
